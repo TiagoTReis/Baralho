@@ -1,53 +1,28 @@
 package baralho;
 
 public class Cartas {
-    private Valor valor;
-    private Naipe naipe;
-
+    private String nome;
+    private String naipe;
 
     public enum Valor {
         A, DOIS, TRES, QUATRO, CINCO, SEIS, SETE, OITO, NOVE, DEZ, J, Q, K, CORINGA;
-
-        public boolean isCoringa() {
-            return this == CORINGA;
-        }
     }
 
     public enum Naipe {
-        OURO, PAUS, ESPADA, COPAS, CORINGA;
-
-        public boolean isCoringa() {
-            return this == CORINGA;
-        }
+        COPAS, OUROS, ESPADAS, PAUS, CORINGA;
     }
-
 
     public Cartas(Valor valor, Naipe naipe) {
-        this.valor = valor;
-        this.naipe = naipe;
-    }
-
-    public Valor getValor() {
-        return valor;
-    }
-
-    public void setValor(Valor valor) {
-        this.valor = valor;
-    }
-
-    public Naipe getNaipe() {
-        return naipe;
-    }
-
-    public void setNaipe(Naipe naipe) {
-        this.naipe = naipe;
-    }
-
-    public String toString() {
-        if (valor.isCoringa() && naipe.isCoringa()) {
-            return "Coringa";
+        if (valor == Valor.CORINGA || naipe == Naipe.CORINGA) {
+            this.nome = "Coringa";
+            this.naipe = "Coringa";
         } else {
-            return valor.name() + " de " + naipe.name();
+            this.nome = valor.name();
+            this.naipe = naipe.name();
         }
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
