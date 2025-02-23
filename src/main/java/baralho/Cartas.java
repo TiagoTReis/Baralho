@@ -1,8 +1,8 @@
 package baralho;
 
 public class Cartas {
-    private String nome;
-    private String naipe;
+    private Valor valor;
+    private Naipe naipe;
 
     public enum Valor {
         A, DOIS, TRES, QUATRO, CINCO, SEIS, SETE, OITO, NOVE, DEZ, J, Q, K, CORINGA;
@@ -13,16 +13,23 @@ public class Cartas {
     }
 
     public Cartas(Valor valor, Naipe naipe) {
-        if (valor == Valor.CORINGA || naipe == Naipe.CORINGA) {
-            this.nome = "Coringa";
-            this.naipe = "Coringa";
-        } else {
-            this.nome = valor.name();
-            this.naipe = naipe.name();
-        }
+        this.valor = valor;
+        this.naipe = naipe;
     }
 
-    public String getNome() {
-        return nome;
+    public Valor getValor() {
+        return valor;
+    }
+
+    public Naipe getNaipe() {
+        return naipe;
+    }
+
+    @Override
+    public String toString() {
+        if (valor == Valor.CORINGA || naipe == Naipe.CORINGA) {
+            return "Coringa";
+        }
+        return valor.name() + " de " + naipe.name();
     }
 }
