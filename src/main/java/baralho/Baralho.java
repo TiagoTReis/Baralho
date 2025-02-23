@@ -14,7 +14,6 @@ public class Baralho {
     private List<Cartas> criarBaralho() {
         List<Cartas> cartas = new ArrayList<>();
 
-        // Adicionando as 52 cartas normais
         for (Cartas.Naipe naipe : Cartas.Naipe.values()) {
             if (naipe != Cartas.Naipe.CORINGA) {
                 for (Cartas.Valor valor : Cartas.Valor.values()) {
@@ -25,7 +24,6 @@ public class Baralho {
             }
         }
 
-        // Adicionando os 4 coringas
         for (int i = 0; i < 4; i++) {
             cartas.add(new Cartas(Cartas.Valor.CORINGA, Cartas.Naipe.CORINGA));
         }
